@@ -1,0 +1,16 @@
+<div *ngIf="swot && area">
+  <div class="row">
+    <span class="col-sm-1">{{area}}</span>
+    <form class="form-inline col-sm-11" (ngSubmit)="create(newPostForm.value, newPostForm)" #newPostForm="ngForm">
+      <div class="form-group">
+        <input ngControl="text" required minlength="2" class="form-control" id="text" placeholder="content">
+      </div>
+      <button type="submit" class="btn">ADD</button>
+    </form>
+  </div>
+
+  <div class="row">
+    <div *ngFor="let post of postList" class="col-sm-4">{{post.text}}</div>
+  </div>
+
+</div>

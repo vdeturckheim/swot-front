@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {NgForm} from '@angular/common';
 import {AuthService} from "../../services/login/auth.service";
 import {Router} from '@angular/router-deprecated';
 import {SWOTComponent} from "./swot/swot.component";
@@ -51,6 +52,16 @@ export class About implements OnInit{
 
   selectSwot(): any {
     this.selectedSwot = this.swotList.find((swot) => swot._id === this.selectedSwotId);
+  }
+
+  create(swot: SWOT, form: NgForm): any {
+   const sub = this._swotService.create(swot)
+       .subscribe((res) => {
+
+         this.swotList.push(res);
+         // TODO: clear form
+         sub.unsubscribe();
+       })
   }
 
 

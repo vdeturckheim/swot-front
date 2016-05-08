@@ -1,3 +1,9 @@
 <div *ngIf="swot">
-  hello {{swot.name}}
+  <h1>{{swot.name}} by {{swot.owner.name}}</h1>
+  <div class="row col-sm-9">
+    <swot-area class="col-sm-6 swot-area" area="S" [swot]="swot"></swot-area>
+    <swot-area class="col-sm-6 swot-area" area="W" [swot]="swot"></swot-area>
+    <swot-area class="col-sm-6 swot-area" area="O" [swot]="swot"></swot-area>
+    <swot-area class="col-sm-6 swot-area" area="T" [swot]="swot"></swot-area>
+  </div>
 </div>
