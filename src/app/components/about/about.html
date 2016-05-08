@@ -1,3 +1,19 @@
-<p>
-  About Works!
-</p>
+<header class="row">
+  <form class="form-inline col-sm-6">
+    <div class="col-sm-5">
+      <label for="ownSwots">SWOTs</label>
+      <select class="c-select" id="ownSwots" [(ngModel)]="selectedSwotId" (ngModelChange)="selectSwot($event)">
+        <option *ngFor="let swot of swotList" [value]="swot._id">{{swot.name}} by {{swot.owner.name}}</option>
+      </select>
+    </div>
+  </form>
+
+  <form class="form-inline col-sm-6">
+    <div class="form-group">
+      <label for="swotName">New SWOT name</label>
+      <input type="text" class="form-control" id="swotName" required>
+    </div>
+    <button type="submit" class="btn">Create SWOT</button>
+  </form>
+</header>
+<swot [swot]="selectedSwot"></swot>

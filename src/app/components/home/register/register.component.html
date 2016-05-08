@@ -1,0 +1,27 @@
+<div>
+  <form (ngSubmit)="register(userForm.value)" #userForm="ngForm" class="form-group row">
+    <h1>Register a new user</h1>
+    <div class="col-sm-12">
+      <label for="name" class="form-control-label col-sm-4">Username</label>
+      <div class="col-sm-8">
+        <input ngControl="name" required minlength="2" class="form-control" id="name">
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <label for="email" class="form-control-label col-sm-4">Email</label>
+      <div class="col-sm-8">
+        <input ngControl="email" type="email" required class="form-control" id="email">
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <label for="password" class="form-control-label col-sm-4">Password</label>
+      <div class="col-sm-8">
+        <input type="password" ngControl="password" required minlength="6" class="form-control" id="password">
+      </div>
+    </div>
+    <button type="submit" [disabled]="!userForm.valid" class="btn btn-primary">Register</button>
+    <div class="col-sm-12">
+      <p>{{error}}</p>
+    </div>
+  </form>
+</div>

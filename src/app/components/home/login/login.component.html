@@ -1,0 +1,21 @@
+<div>
+  <form (ngSubmit)="login(userForm.value)" #userForm="ngForm" class="form-group row">
+    <h1>Login</h1>
+    <div class="col-sm-12">
+      <label for="name" class="form-control-label col-sm-4">Username</label>
+      <div class="col-sm-8">
+        <input ngControl="name" required minlength="2" class="form-control" id="name">
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <label for="password" class="form-control-label col-sm-4">Password</label>
+      <div class="col-sm-8">
+        <input type="password" ngControl="password" required minlength="6" class="form-control" id="password">
+      </div>
+    </div>
+    <button type="submit" [disabled]="!userForm.valid" class="btn btn-primary">Register</button>
+    <div class="col-sm-12">
+      <p>{{error}}</p>
+    </div>
+  </form>
+</div>
