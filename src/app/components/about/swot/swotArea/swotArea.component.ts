@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {SWOT} from "../../../../typings/swot";
 import {Post} from "../../../../typings/post";
 import {POSTService} from "../../../../services/swots/post.service";
-import {NgForm} from '@angular/common';
+import {NgForm, Control} from '@angular/common';
 
 @Component({
     selector: 'swot-area',
@@ -34,7 +34,7 @@ export class SWOTAreaComponent implements OnInit {
     @Input() public area: String;
     @Input() public swot: SWOT;
 
-    public postList: Array<Post>
+    public postList: Array<Post>; // TODO: color by post author
 
     create(post: Post, form: NgForm): any {
         post.category = this.area;
@@ -43,6 +43,7 @@ export class SWOTAreaComponent implements OnInit {
 
                 this.postList.push(res);
                 // TODO: clear form
+                (<Control> form.controls['text']).updateValue('');
                 sub.unsubscribe();
             })
     }
